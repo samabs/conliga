@@ -1,0 +1,10 @@
+conliga.Rproj
+.Rproj.user
+.Rhistory
+.RData
+inst/doc
+.httr-oauth
+man/.Rapp.history
+.DS_Store
+src/*.o
+src/*.so

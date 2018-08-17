@@ -1,0 +1,11 @@
+prior,value
+hpp_rho_c,100000
+hpp_rho_d,100
+hpp_g_a,7
+hpp_g_b,1
+hpp_apk_a,2000
+hpp_apk_b,10
+precision_prior_shape,1.5
+precision_prior_scale,1000000
+rcn_prior_shape,3
+rcn_prior_scale,1

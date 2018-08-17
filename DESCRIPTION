@@ -1,0 +1,42 @@
+Package: conliga
+Type: Package
+Title: [CO]py [N]umber from [LI]NE1 [G]enomic [A]mplicons
+Version: 0.1.0
+Date: 2018-07-30
+Authors@R: person("Sam", "Abujudeh", email = "sam.abujudeh@cruk.cam.ac.uk",
+                  role = c("aut", "cre"))
+Maintainer: Sam Abujudeh <sam.abujudeh@cruk.cam.ac.uk>
+Description: Infer relative copy number profiles from FAST-SeqS (and similar) data.
+License: GPLv2
+Depends:
+  R (>= 3.2.3),
+  R (<= 3.5.0)
+Imports:
+  Rcpp (>= 0.12.3),
+  magrittr (>= 1.5),
+  tibble (>= 1.1),
+  ggplot2 (>= 2.2.1),
+  tidyr (>= 0.6.0),
+  dplyr (>= 0.4.3),
+  readr (>= 1.0.0),
+  purrr (>= 0.2.5),
+  tidyselect (>= 0.2.4),
+  matrixStats (>= 0.50.1),
+  KernSmooth (>= 2.23-15),
+  grid,
+  gridExtra (>= 2.0.0),
+  parallel,
+  scales (>= 0.4.1),
+  ggthemes (>= 3.4.0),
+  plyr (>= 1.8.3),
+  colorRamps (>= 2.3),
+  RColorBrewer (>= 1.1-2),
+  GenomicRanges (>= 1.22.4),
+  IRanges (>= 2.4.7),
+  rtracklayer (>= 1.30.4),
+  Ckmeans.1d.dp (>= 4.2.1)
+BiocViews: Software
+Encoding: UTF-8
+LazyData: true
+LinkingTo: Rcpp, RcppArmadillo
+RoxygenNote: 6.1.0
