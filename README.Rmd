@@ -118,7 +118,7 @@ sample_types
 
 The column `Control` is `1` if the sample is a control and `0` otherwise.
 
-```{r}
+```{r, eval=FALSE}
 fit_data = fit_controls(analysis_path=analysis_path,
                         counts = filtered_counts,
                         sample_types=sample_types,

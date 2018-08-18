@@ -7,7 +7,6 @@ Installation
 ------------
 
 ``` r
-# Obtain the development version of conliga from Github
 # install.packages("devtools")
 devtools::install_github("samabs/conliga")
 ```
@@ -31,7 +30,7 @@ The typical workflow:
 Example
 -------
 
-Let's go through an example using the data from the paper.
+Let's go through an example using the count data from the paper.
 
 ### Set-up
 
@@ -174,6 +173,10 @@ cytoband_file = system.file("extdata",
 cytoband = read_cytobands(cytoband_file,
                           chr_order=chromosomes)
 
+# alternatively get cytoband information by querying UCSC
+# cytoband = get_cytobands(genome="hg38",
+#                          chr_order=chromosomes)
+
 cytoband
 #> # A tibble: 811 x 5
 #>    chr      start      end name   stain 
@@ -189,10 +192,6 @@ cytoband
 #>  9 chr1  23600000 27600000 p36.11 gneg  
 #> 10 chr1  27600000 29900000 p35.3  gpos25
 #> # ... with 801 more rows
-# alternatively get cytoband information by querying UCSC
-
-# cytoband = get_cytobands(genome="hg38",
-#                          chr_order=chromosomes)
 
 # we need to state our priors in the following format
 priors_file = system.file("extdata",
@@ -252,25 +251,17 @@ Note that we have fixed the hyperparameter gamma to 1. The other hyperparameters
 
 ### Processing the MCMC chains and obtaining results with `process_MCMC()`
 
-Now we process the MCMC using the the `process_MCMC` function. Here we have selected to burn the first 5000 iterations.
+Now we process the MCMC using the the `process_MCMC` function. Here we have selected to burn the first 10000 iterations.
 
 ``` r
 
-burn_in = 5000
+burn_in = 10000
 
-# samples %>% purrr::map(~process_MCMC(analysis_path=analysis_path,
-#                                      sample_name=.x,
-#                                      run_data=fit_data$run_data,
-#                                      loci_means=fit_data$map_means,
-#                                      cytoband=cytoband,
-#                                      burn_in=burn_in))
-
-samples %>% purrr::map(~process_MCMC(analysis_path=analysis_path,
-                                     sample_name=.x,
-                                     run_data=fit_data$run_data,
-                                     loci_means=fit_data$map_means,
-                                     cytoband=cytoband,
-                                     burn_in=burn_in))
+samples_to_run %>% purrr::map(~process_MCMC(analysis_path=analysis_path,
+                                            sample_name=.x,
+                                            fit_data=fit_data,
+                                            cytoband=cytoband,
+                                            burn_in=burn_in))
 ```
 
 This function saves the inferred relative copy number calls to `analysis_path/results/sample_name/sample_name.tsv` and provides a number of basic plots under `analysis_path/results/sample_name/standard_plots/`.
