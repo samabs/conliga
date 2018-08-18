@@ -145,11 +145,11 @@ cytoband_file = system.file("extdata",
 cytoband = read_cytobands(cytoband_file,
                           chr_order=chromosomes)
 
-cytoband
 # alternatively get cytoband information by querying UCSC
-
 # cytoband = get_cytobands(genome="hg38",
 #                          chr_order=chromosomes)
+
+cytoband
 
 # we need to state our priors in the following format
 priors_file = system.file("extdata",
